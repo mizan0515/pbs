@@ -1,0 +1,90 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model ProblemBlock {
+  id    Int    @id @default(autoincrement())
+  steps Step[]
+}
+
+model Step {
+  id                   Int                   @id @default(autoincrement())
+  question             String
+  description          String
+  stateActionChips     StateActionChip[]
+  customActionChips    CustomActionChip[]
+  actionActionChips    ActionActionChip[]
+  nextStepsActionChips NextStepsActionChip[]
+  timeLineActionChips  TimeLineActionChip[]
+  problemBlock         ProblemBlock          @relation(fields: [problemBlockId], references: [id])
+  problemBlockId       Int
+}
+
+model StateActionChip {
+  id      Int    @id @default(autoincrement())
+  content String
+  step    Step   @relation(fields: [stepId], references: [id])
+  stepId  Int
+}
+
+model CustomActionChip {
+  id          Int       @id @default(autoincrement())
+  isCompleted Boolean?
+  isFirstStep Boolean?
+  content     String
+  notes       String?
+  durations   String?   // JSON encoded array of times
+  schedule    Schedule?
+  step        Step      @relation(fields: [stepId], references: [id])
+  stepId      Int
+}
+
+model ActionActionChip {
+  id          Int       @id @default(autoincrement())
+  isCompleted Boolean
+  isFirstStep Boolean
+  content     String
+  notes       String?
+  durations   String?   // JSON encoded array of times
+  schedule    Schedule?
+  step        Step      @relation(fields: [stepId], references: [id])
+  stepId      Int
+}
+
+model NextStepsActionChip {
+  id          Int     @id @default(autoincrement())
+  isCompleted Boolean
+  isFirstStep Boolean
+  actions     String  // JSON encoded array of ActionActionChip ids
+  step        Step    @relation(fields: [stepId], references: [id])
+  stepId      Int
+}
+
+model TimeLineActionChip {
+  id       Int    @id @default(autoincrement())
+  timeline String // JSON encoded timeline details
+  step     Step   @relation(fields: [stepId], references: [id])
+  stepId   Int
+}
+
+model Schedule {
+  id                 Int               @id @default(autoincrement())
+  reminder           String?           // JSON encoded time
+  deadline           String?           // JSON encoded time
+  recurrence         String?           // JSON encoded array of recurrence patterns
+  customActionChip   CustomActionChip? @relation(fields: [customActionChipId], references: [id])
+  customActionChipId Int?              @unique
+  actionActionChip   ActionActionChip? @relation(fields: [actionActionChipId], references: [id])
+  actionActionChipId Int?              @unique
+}
