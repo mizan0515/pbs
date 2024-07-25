@@ -3,14 +3,7 @@
   height: 24px;
   width: 24px;
 }
-.iconL {
-  position: relative;
-  overflow: hidden;
-  flex-shrink: 0;
-  height: 32px;
-  width: 32px;
-  min-height: 32px;
-}
+
 .logoIcon {
   height: 32px;
   width: 32px;
@@ -104,6 +97,49 @@
   gap: var(--space-11);
   max-width: 840px;
 }
+
+.frameParent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; /* flex-start에서 stretch로 변경 */
+  justify-content: flex-start;
+  gap: 80px;
+  max-width: 100%;
+  text-align: center;
+  font-size: var(--font-size-xl);
+  color: var(--metal-900-light);
+  font-family: var(--default);
+}
+
+@media screen and (max-width: 392px) {
+  .frameParent {
+    gap: var(--gap-21xl);
+  }
+}
+
+
+
+
+/* 버튼 관련 스타일 수정 */
+
+
+.iconL {
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  height: 32px;
+  width: 32px;
+  min-height: 32px;
+}
+.iconR {
+  height: 32px;
+  width: 32px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  min-height: 32px;
+}
 .buttonText {
   position: relative;
   line-height: 32px;
@@ -121,7 +157,7 @@
   gap: var(--gap-xs);
 }
 /* 버튼 관련 스타일 수정 */
-.buttonParent {
+.buttonMainParent {
   align-self: stretch;
   display: flex;
   flex-direction: column;
@@ -158,25 +194,4 @@
   padding: var(--padding-2xs) var(--space-9);
   min-height: 58px;
   gap: var(--gap-xl);
-}
-
-
-.frameParent {
-  align-self: stretch;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch; /* flex-start에서 stretch로 변경 */
-  justify-content: flex-start;
-  gap: 80px;
-  max-width: 100%;
-  text-align: center;
-  font-size: var(--font-size-xl);
-  color: var(--metal-900-light);
-  font-family: var(--default);
-}
-
-@media screen and (max-width: 392px) {
-  .frameParent {
-    gap: var(--gap-21xl);
-  }
 }

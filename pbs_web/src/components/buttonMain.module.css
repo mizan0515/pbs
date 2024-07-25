@@ -1,0 +1,68 @@
+.iconL {
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+    height: 32px;
+    width: 32px;
+    min-height: 32px;
+  }
+
+.buttonText {
+    position: relative;
+    line-height: 32px;
+    font-weight: 600;
+    display: inline-block;
+    min-width: 84px;
+    white-space: nowrap;
+    color: black;
+  }
+
+.iconLParent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: var(--gap-xs);
+  }
+  
+  /* 버튼 관련 스타일 수정 */
+.buttonMainParent {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+    max-width: 100%;
+  }
+  
+.button {
+    text-decoration: none;
+    display: block; /* flex에서 block으로 변경 */
+    transition: transform 0.3s ease;
+  }
+  
+.button:hover {
+    transform: scale(1.005);
+  }
+
+.button:active {
+    transform: scale(0.98);
+  }
+
+.buttonMain {
+    display: flex;
+    flex-direction: row;
+    width: 100%; /* 전체 너비 사용 */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+    border-radius: var(--radi-16);
+    background-color: var(--mode-base-00);
+    border: 1px solid var(--brand-active);
+    box-sizing: border-box;
+    overflow: hidden;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--padding-2xs) var(--space-9);
+    min-height: 58px;
+    gap: var(--gap-xl);
+  }
+  

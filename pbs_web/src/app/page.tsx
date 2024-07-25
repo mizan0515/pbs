@@ -3,48 +3,33 @@ import Link from 'next/link';
 import type { NextPage } from "next";
 import Component from "../components/component";
 import styles from "./index.module.css";
+import Image from "next/image";
+import ButtonMain from "../components/buttonMain";
+
+
+
 
 const SplashScreen: NextPage = () => {
+  const buttonMainLinks = [
+    { href: "/today", text: "오늘 할 일" },
+    { href: "/first-steps", text: "First Steps" },
+    { href: "/add-task", text: "작업 추가" }
+  ];
+
   return (
     <section className={styles.frameParent}>
-      <div className={styles.buttonParent}>
-        <Link href="/today" passHref legacyBehavior>
-          <a className={styles.button}>
-            <div className={styles.buttonMain}>
-              <div className={styles.iconLParent}>
-                <img className={styles.iconL} alt="" src="/icon-l.svg" />
-                <div className={styles.buttonText}>오늘 할 일</div>
-              </div>
-              <img className={styles.iconR} alt="" src="/icon-r.svg" />
-            </div>
-          </a>
-        </Link>
-        <Link href="/first-steps" passHref legacyBehavior>
-          <a className={styles.button}>
-            <div className={styles.buttonMain}>
-              <div className={styles.iconLParent}>
-                <img className={styles.iconL} alt="" src="/icon-l-1.svg" />
-                <div className={styles.buttonText}>First Steps</div>
-              </div>
-              <img className={styles.iconR} alt="" src="/icon-r.svg" />
-            </div>
-          </a>
-        </Link>
-        <Link href="/add-task" passHref legacyBehavior>
-          <a className={styles.button}>
-            <div className={styles.buttonMain}>
-              <div className={styles.iconLParent}>
-                <img className={styles.iconL} alt="" src="/icon-l-2.svg" />
-                <div className={styles.buttonText}>작업 추가</div>
-              </div>
-              <img className={styles.iconR} alt="" src="/icon-r.svg" />
-            </div>
-          </a>
-        </Link>
+      <div className={styles.buttonMainParent}>
+        {
+          buttonMainLinks.map((link, index) => (
+            <ButtonMain key={index} href={link.href} text={link.text} iconSrc={`/icon-2-${index + 1}.svg`} />
+          ))
+        }
       </div>
       <Component />
     </section>
   );
 };
+
+
 
 export default SplashScreen;
