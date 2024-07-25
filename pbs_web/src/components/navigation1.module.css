@@ -1,0 +1,58 @@
+.navigationIcon,
+.navigationIconWrapper {
+  height: 81.3px;
+  width: 81.3px;
+  position: relative;
+}
+.navigationIconWrapper {
+  margin: 0 !important;
+  position: absolute;
+  top: 0;
+  left: 179.4px;
+  border-radius: var(--br-58xl);
+  background-color: var(--mode-base-00);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.frameChild,
+.frameItem {
+  height: 86px;
+  flex: 1;
+  position: relative;
+  background-color: var(--mode-base-00);
+  border: 2px solid var(--brand-sub);
+  box-sizing: border-box;
+  min-width: 143px;
+}
+.rectangleParent {
+  width: 440px;
+  margin: 0 !important;
+  position: absolute;
+  top: 28.3px;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  row-gap: 20px;
+  z-index: 1;
+}
+.navigation {
+  width: 100%;
+  height: 114.3px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+  max-width: 840px;
+}
+@media screen and (max-width: 352px) {
+  .navigation {
+    height: auto;
+    min-height: 114.29999999999995;
+  }
+}

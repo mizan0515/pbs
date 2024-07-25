@@ -1,0 +1,192 @@
+.unionIcon {
+  height: 29px;
+  width: 29px;
+  position: relative;
+}
+.unionWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-8xs-5) 0;
+}
+.title {
+  margin: 0;
+  flex: 1;
+  position: relative;
+  font-size: inherit;
+  line-height: 38px;
+  font-weight: 700;
+  font-family: inherit;
+  display: inline-block;
+  min-width: 152px;
+}
+.chevrondownIcon {
+  height: 24px;
+  width: 24px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+.chevrondownWrapper,
+.div1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.div1 {
+  align-self: stretch;
+  flex-wrap: wrap;
+  gap: var(--gap-base);
+}
+.icon1,
+.title1 {
+  position: relative;
+}
+.title1 {
+  font-weight: 500;
+  display: inline-block;
+  min-width: 52px;
+}
+.icon1 {
+  height: 16px;
+  width: 16px;
+}
+.div2,
+.icon {
+  display: flex;
+  flex-direction: row;
+}
+.icon {
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--padding-3xs);
+}
+.div2 {
+  align-self: stretch;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--gap-xl);
+}
+.checkbox {
+  margin: 0;
+  height: 20px;
+  width: 20px;
+  border-radius: var(--br-7xs);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.icon2,
+.label {
+  position: relative;
+}
+.label {
+  line-height: 30px;
+  font-weight: 500;
+  display: inline-block;
+  min-width: 123px;
+}
+.icon2 {
+  height: 32px;
+  width: 32px;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: none;
+}
+.checkboxlabel {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 var(--padding-151xl) 0 0;
+  gap: var(--gap-mini);
+}
+.div3,
+.frameParent,
+.parent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.div3 {
+  border-radius: var(--radi-16);
+  background-color: var(--primary-blue-100-light);
+  justify-content: center;
+  padding: var(--padding-xs);
+  font-size: var(--default-size);
+  color: var(--metal-50-dark);
+}
+.frameParent,
+.parent {
+  justify-content: flex-start;
+  gap: var(--gap-xs);
+}
+.frameParent {
+  gap: var(--gap-21xl);
+  font-size: var(--small-size);
+  color: var(--blue-gray-900-light);
+}
+.vectorIcon {
+  height: 86.4px;
+  width: 86.4px;
+  position: relative;
+  display: none;
+}
+.div,
+.vectorWrapper {
+  justify-content: flex-start;
+}
+.vectorWrapper {
+  width: 121px;
+  height: 121px;
+  margin: 0 !important;
+  position: absolute;
+  top: -103px;
+  left: 163px;
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  padding: var(--padding-mid-3) var(--padding-mid);
+  box-sizing: border-box;
+  z-index: 2;
+}
+.div {
+  align-self: stretch;
+  border-radius: var(--radi-24);
+  background-color: var(--mode-base-00);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: var(--padding-13xl) var(--padding-xl) var(--padding-55xl);
+  position: relative;
+  gap: var(--space-12);
+  text-align: left;
+  font-size: var(--title-size);
+  color: var(--metal-900-light);
+  font-family: var(--default);
+}
+@media screen and (max-width: 392px) {
+  .div {
+    gap: var(--space-12);
+  }
+}
+@media screen and (max-width: 352px) {
+  .frameParent {
+    gap: var(--gap-xl);
+  }
+}
+@media screen and (max-width: 328px) {
+  .checkboxlabel {
+    padding-right: var(--padding-xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 196px) {
+  .div2 {
+    flex-wrap: wrap;
+  }
+}
