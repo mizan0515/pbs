@@ -30,7 +30,6 @@ export default function RootLayout({ children }:
         <div className={styles.splashscreen}>
           <main className={styles.mainscreen}>
             {/* 네비게이션 바 */}
-            {/* 사용자가 페이지 간 이동할 수 있는 링크를 포함한 네비게이션 바입니다. */}
             <header className={styles.header}>
               <div className={styles.logo}>
                 <div className={styles.logo1}>
