@@ -4,8 +4,7 @@ import type { NextPage } from "next";
 import Component from "../components/component";
 import styles from "./index.module.css";
 import Image from "next/image";
-import ButtonMain from "../components/buttonMain";
-
+import ButtonMain from "../components/button.Main";
 
 
 

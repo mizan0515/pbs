@@ -1,7 +1,7 @@
 'use client'
 import type { NextPage } from "next";
 import Link from 'next/link';
-import styles from "./buttonMain.module.css";
+import styles from "./button.main.module.css";
 import { useState } from "react";
 
 export default function ButtonMain({ href, text, iconSrc }: 
