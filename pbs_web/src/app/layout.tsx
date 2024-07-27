@@ -27,7 +27,7 @@ export default function RootLayout({ children }:
       {/* head 태그는 비어있지만, Next.js가 자동으로 필요한 메타 태그를 삽입합니다. */}
       <head />
       <body>
-        <div className={styles.splashscreen}>
+        <div className={styles.Wrapper}>
           <main className={styles.mainscreen}>
             {/* 네비게이션 바 */}
             <header className={styles.header}>

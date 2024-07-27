@@ -4,8 +4,8 @@ import type { NextPage } from "next";
 import Component from "../components/component";
 import styles from "./index.module.css";
 import Image from "next/image";
-import ButtonMain from "../components/button.Main";
-
+import ButtonMain from "../components/button.main";
+import ActionChipMain from "@/components/actionchip.main";
 
 
 const SplashScreen: NextPage = () => {
@@ -25,6 +25,7 @@ const SplashScreen: NextPage = () => {
         }
       </div>
       <Component />
+      <ActionChipMain />
     </section>
   );
 };
