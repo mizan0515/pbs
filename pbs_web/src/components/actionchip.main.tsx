@@ -2,7 +2,7 @@ import React from 'react';
 import dotenv from "dotenv";
 import { connectDB } from "../../util/database"
 import styles from "./component.module.css"
-import ClampLines from 'react-clamp-lines';
+
 
 
 dotenv.config();
@@ -91,7 +91,7 @@ export default async function ActionChipMain() {
         {allContents.map((item, index) => {
             if (item.type === 'stepDescription') {
             return (
-                <div key={index} className={styles.div2}>
+                <div key={index} className={styles.stepDescription}>
                 <div className={styles.title1}>{item.content}</div>
                 <div className={styles.icon}>
                     <img className={styles.icon1} alt="" src="Icon-3.svg" />
@@ -105,8 +105,10 @@ export default async function ActionChipMain() {
                     <div className={styles.checkbox} />
                 </div>
                 <div className={styles.sample22Parent}>
-                    <div className={styles.sample2}>{item.content}
-                        <ClampLines text={item.content} lines={1} ellipsis="..." moreText="Expand"lessText="Collapse" className={styles.sample2} id="clamp-lines-1" />
+                    <div className={styles.sample2}>
+                        <div className="truncate">
+                            {item.content}
+                        </div>
                     </div>
                     <img className={styles.chevrondownIcon} alt="" src="/icon-r.svg" />
                 </div>
@@ -123,7 +125,10 @@ export default async function ActionChipMain() {
                 </div>
                 <div className={styles.sample22Parent}>
                     <div className={styles.sample2}>
-                    <ClampLines text={item.content} lines={1} ellipsis="..." moreText="Expand"lessText="Collapse" className={styles.sample2} id="clamp-lines-1" />
+                    <div className="truncate">
+                        {item.content}
+                    </div>
+                     
                     </div>
                     <img className={styles.chevrondownIcon} alt="" src="/icon-r.svg" />
                 </div>
