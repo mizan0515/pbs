@@ -1,20 +1,20 @@
-// 필요한 모듈들을 import합니다.
 import React from 'react';
 import dotenv from "dotenv";
-import { connectDB } from "../../util/database";
+import { connectDB } from "../../util/database"
+import styles from "./component.module.css"
+import ClampLines from 'react-clamp-lines';
 
-// 환경 변수를 로드합니다.
+
 dotenv.config();
 
-// Content 인터페이스를 정의합니다.
-// 이는 추출된 내용의 형식을 지정합니다.
+// Content 인터페이스를 수정하여 step description을 별도의 타입으로 추가합니다.
 interface Content {
-  type: 'actionChip' | 'actionChipDepth'; // 리터럴 타입을 사용하여 type을 제한합니다.
+  type: 'actionChip' | 'actionChipDepth' | 'stepDescription';
   content: string;
 }
 
 /**
- * 주어진 문서에서 actionChip과 actionChipDepth의 내용을 추출합니다.
+ * 주어진 문서에서 type이 'how'인 step의 actionChip, actionChipDepth 내용과 description을 추출합니다.
  * @param doc - 처리할 문서 객체
  * @returns Content 객체의 배열
  */
@@ -25,25 +25,42 @@ const extractContents = (doc: any): Content[] => {
   if (doc.steps && Array.isArray(doc.steps)) {
     // 각 step을 순회합니다.
     doc.steps.forEach((step: any) => {
-      // step.action_chip이 존재하고 배열인지 확인합니다.
-      if (step.action_chip && Array.isArray(step.action_chip)) {
-        // 각 action_chip을 순회합니다.
-        step.action_chip.forEach((chip: any) => {
-          // action_chip의 content가 존재하면 추가합니다.
-          if (chip.content) {
-            contents.push({ type: 'actionChip', content: chip.content });
-          }
-          // action_chip_depth가 존재하고 배열인지 확인합니다.
-          if (chip.action_chip_depth && Array.isArray(chip.action_chip_depth)) {
-            // 각 action_chip_depth를 순회합니다.
-            chip.action_chip_depth.forEach((depth: any) => {
-              // action_chip_depth의 content가 존재하면 추가합니다.
-              if (depth.content) {
-                contents.push({ type: 'actionChipDepth', content: depth.content });
-              }
-            });
-          }
-        });
+      // step의 type이 'how'인 경우에만 처리합니다.
+      if (step.type === 'how') {
+        // step의 description을 별도의 항목으로 추가합니다.
+        if (step.description) {
+          contents.push({
+            type: 'stepDescription',
+            content: step.description
+          });
+        }
+
+        // step.action_chip이 존재하고 배열인지 확인합니다.
+        if (step.action_chip && Array.isArray(step.action_chip)) {
+          // 각 action_chip을 순회합니다.
+          step.action_chip.forEach((chip: any) => {
+            // action_chip의 content가 존재하면 추가합니다.
+            if (chip.content) {
+              contents.push({ 
+                type: 'actionChip', 
+                content: chip.content
+              });
+            }
+            // action_chip_depth가 존재하고 배열인지 확인합니다.
+            if (chip.action_chip_depth && Array.isArray(chip.action_chip_depth)) {
+              // 각 action_chip_depth를 순회합니다.
+              chip.action_chip_depth.forEach((depth: any) => {
+                // action_chip_depth의 content가 존재하면 추가합니다.
+                if (depth.content) {
+                  contents.push({ 
+                    type: 'actionChipDepth', 
+                    content: depth.content
+                  });
+                }
+              });
+            }
+          });
+        }
       }
     });
   }
@@ -52,9 +69,7 @@ const extractContents = (doc: any): Content[] => {
 };
 
 // React 컴포넌트를 정의합니다.
-// 이 컴포넌트는 비동기 함수로, 데이터베이스에서 데이터를 가져와 처리합니다.
 export default async function ActionChipMain() {
-  // 데이터베이스 연결을 설정합니다.
   const client = await connectDB;
   const db = client.db("pbs");
   
@@ -71,13 +86,52 @@ export default async function ActionChipMain() {
 
   // 추출된 내용을 렌더링합니다.
   return (
-    <div>
-      {allContents.map((item, index) => (
-        // 각 항목에 대해 div를 생성합니다. key prop은 React의 최적화를 위해 필요합니다.
-        <div key={index}>
-          <strong>{item.type}:</strong> {item.content}
+    <div className={styles.div}>
+        <div className={styles.parent}>
+        {allContents.map((item, index) => {
+            if (item.type === 'stepDescription') {
+            return (
+                <div key={index} className={styles.div2}>
+                <div className={styles.title1}>{item.content}</div>
+                <div className={styles.icon}>
+                    <img className={styles.icon1} alt="" src="Icon-3.svg" />
+                </div>
+                </div>
+            );
+            } else if (item.type === 'actionChip') {
+            return (
+                <div key={index} className={styles.frameGroup}>
+                <div className={styles.chevrondownWrapper}>
+                    <div className={styles.checkbox} />
+                </div>
+                <div className={styles.sample22Parent}>
+                    <div className={styles.sample2}>{item.content}
+                        <ClampLines text={item.content} lines={1} ellipsis="..." moreText="Expand"lessText="Collapse" className={styles.sample2} id="clamp-lines-1" />
+                    </div>
+                    <img className={styles.chevrondownIcon} alt="" src="/icon-r.svg" />
+                </div>
+                </div>
+            );
+            } else if (item.type === 'actionChipDepth') {
+            return (
+                <div key={index} className={styles.frameGroup}>
+                <div className={styles.vectorWrapper}>
+                    <img className={styles.frameChild} alt="" src="Vector-1.svg" />
+                </div>
+                <div className={styles.chevrondownWrapper}>
+                    <div className={styles.checkbox} />
+                </div>
+                <div className={styles.sample22Parent}>
+                    <div className={styles.sample2}>
+                    <ClampLines text={item.content} lines={1} ellipsis="..." moreText="Expand"lessText="Collapse" className={styles.sample2} id="clamp-lines-1" />
+                    </div>
+                    <img className={styles.chevrondownIcon} alt="" src="/icon-r.svg" />
+                </div>
+                </div>
+            );
+            }
+        })}
         </div>
-      ))}
     </div>
   );
 }

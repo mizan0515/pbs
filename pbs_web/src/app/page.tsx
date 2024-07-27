@@ -24,7 +24,7 @@ const SplashScreen: NextPage = () => {
           ))
         }
       </div>
-      <Component />
+      {/* <Component /> */}
       <ActionChipMain />
     </section>
   );

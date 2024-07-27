@@ -25,35 +25,35 @@ const Component:NextPage = () => {
   </div>
   </div>
   <div className={styles.frameParent}>
-  <div className={styles.parent}>
-  <div className={styles.div2}>
-  <div className={styles.title1}>문제 그룹</div>
-  <div className={styles.icon}>
-  <img className={styles.icon1} alt="" src="Icon.svg" />
-  </div>
-  </div>
-  <div className={styles.frameGroup}>
-  <div className={styles.chevrondownWrapper}>
-  <div className={styles.checkbox} />
-  </div>
-  <div className={styles.sample22Parent}>
-  <div className={styles.sample2}>sample 2차 하위 문제 2차 ...</div>
-  <img className={styles.chevrondownIcon} alt="" src="chevronDown$.png" />
-  </div>
-  </div>
-  <div className={styles.frameGroup}>
-  <div className={styles.vectorWrapper}>
-  <img className={styles.frameChild} alt="" src="Vector 13.svg" />
-  </div>
-  <div className={styles.chevrondownWrapper}>
-  <div className={styles.checkbox} />
-  </div>
-  <div className={styles.sample22Parent}>
-  <div className={styles.sample2}>sample 2차 하위 문제 ...</div>
-  <img className={styles.chevrondownIcon} alt="" src="chevronDown$.png" />
-  </div>
-  </div>
-  </div>
+      <div className={styles.parent}>
+        <div className={styles.div2}>
+          <div className={styles.title1}>문제 그룹</div>
+          <div className={styles.icon}>
+            <img className={styles.icon1} alt="" src="Icon.svg" />
+          </div>
+        </div>
+        <div className={styles.frameGroup}>
+          <div className={styles.chevrondownWrapper}>
+            <div className={styles.checkbox} />
+          </div>
+          <div className={styles.sample22Parent}>
+            <div className={styles.sample2}>액션칩 1</div>
+            <img className={styles.chevrondownIcon} alt="" src="chevronDown$.png" />
+          </div>
+        </div>
+        <div className={styles.frameGroup}>
+          <div className={styles.vectorWrapper}>
+            <img className={styles.frameChild} alt="" src="Vector 13.svg" />
+          </div>
+          <div className={styles.chevrondownWrapper}>
+            <div className={styles.checkbox} />
+          </div>
+          <div className={styles.sample22Parent}>
+            <div className={styles.sample2}> 액션칩 뎁스 1</div>
+            <img className={styles.chevrondownIcon} alt="" src="chevronDown$.png" />
+          </div>
+        </div>
+      </div>
   <div className={styles.all}>
   <div className={styles.div2}>
   <div className={styles.title1}>문제 그룹</div>
