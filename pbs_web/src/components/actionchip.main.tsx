@@ -86,13 +86,17 @@ export default async function ActionChipMain() {
 
   // 추출된 내용을 렌더링합니다.
   return (
-    <div className={styles.div}>
+    <div className={styles.actionChipContainer}>
         <div className={styles.parent}>
         {allContents.map((item, index) => {
             if (item.type === 'stepDescription') {
             return (
                 <div key={index} className={styles.stepDescription}>
-                <div className={styles.title1}>{item.content}</div>
+                <div className={styles.title1}>
+                  <div className="truncate">
+                    {item.content}
+                  </div>
+                </div>
                 <div className={styles.icon}>
                     <img className={styles.icon1} alt="" src="Icon-3.svg" />
                 </div>
@@ -104,7 +108,7 @@ export default async function ActionChipMain() {
                 <div className={styles.chevrondownWrapper}>
                     <div className={styles.checkbox} />
                 </div>
-                <div className={styles.sample22Parent}>
+                <div className={styles.actionChipbox}>
                     <div className={styles.sample2}>
                         <div className="truncate">
                             {item.content}
@@ -123,12 +127,11 @@ export default async function ActionChipMain() {
                 <div className={styles.chevrondownWrapper}>
                     <div className={styles.checkbox} />
                 </div>
-                <div className={styles.sample22Parent}>
+                <div className={styles.actionChipbox}>
                     <div className={styles.sample2}>
                     <div className="truncate">
                         {item.content}
                     </div>
-                     
                     </div>
                     <img className={styles.chevrondownIcon} alt="" src="/icon-r.svg" />
                 </div>
