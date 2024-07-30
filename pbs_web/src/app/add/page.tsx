@@ -75,21 +75,20 @@ const AddPage: React.FC = () => {
     return (
         <div className= "problemInputContainer" >
             <div className="problemGuideInput">
-                <h1 className="text-2xl font-bold mb-4">Add How List</h1>
-                <div className="mb-8">
-                    <h2 className="text-xl font-semibold mb-2">Group A</h2>
-                    <div className="chipsParent">
-                    {groupA.map((chip, index) => (
-                        <ActionChipChip 
-                        key={index} 
-                        content={chip.content} 
-                        iconX={chip.iconX} 
-                        onClick={() => handleChipClick(actionChips.indexOf(chip))} 
-                        />
-                    ))}
+                <div className="questionText">Add How List</div>
+                    <div className="chipAndLineContainer">
+                        <div className="chipsParent">
+                        {groupA.map((chip, index) => (
+                            <ActionChipChip 
+                            key={index} 
+                            content={chip.content} 
+                            iconX={chip.iconX} 
+                            onClick={() => handleChipClick(actionChips.indexOf(chip))} 
+                            />
+                        ))}
+                        </div>
+                        <div className="line"></div>
                     </div>
-                </div>
-
                 <div>
                     <h2 className="text-xl font-semibold mb-2">Group B</h2>
                     <div className="chipsParent">

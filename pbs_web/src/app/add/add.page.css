@@ -5,3 +5,34 @@
     gap: var(--space-3, 4px);
     align-self: stretch;
 }
+
+.problemGuideInput {
+    display: flex;
+    padding: 0px var(--space-6, 12px);
+
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+}
+.questionText {
+    color: var(--7-metal-500-light, var(--Colors-metal-500, #6B7280));
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 38px;
+}
+
+.line {
+    margin-top: var(--space-4, 8px);
+    width: 100%;
+    height: 1px;
+    background-color: var(--7-metal-700-light, var(--Colors-metal-700, #384252));
+}
+.inputTexstLine {
+    margin-top: var(--space-4, 8px);
+    width: 100%;
+    height: 1px;
+    background-color: var(--7-metal-700-light, var(--Colors-metal-700, #384252));
+}
+.chipAndLineContainer {
+    align-self: stretch;
+}

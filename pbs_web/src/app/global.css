@@ -35,6 +35,9 @@ body {
   --mode-base-100: #f4f4f5;
   --mode-base-200: #e4e4e7;
   --blue-gray-600-light: #48566a;
+  --Colors-metal-700: #384252;
+  --Colors-metal-500: #6B7280;
+
 
   /* Spacing */
   --radi-16: 16px;
@@ -87,7 +90,6 @@ body {
   --shadow-sm: 0px 1px 3px rgba(0, 0, 0, 0.1);
 
   /* Chip 스타일 */
-  --chip-width: 111px;
   --chip-height: 36px;
   --chip-padding: 0px 12px 0px 12px;
   --chip-border-color: var(--mode-base-200);
