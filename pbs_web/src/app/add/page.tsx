@@ -10,10 +10,6 @@ interface ActionChip {
   content: string;
   iconX: boolean;
 }
-interface TextInput {
-    inputText: string;
-    setInputText: (inputText: string) => void;
-}
 
 // 임시 데이터
 const mockHowList: ActionChip[] = [
@@ -92,16 +88,6 @@ const AddPage: React.FC = () => {
                         ))}
                         </div>
                         <div className="line"></div>
-                        <div className="textInputContainer">
-                            <input
-                                type="text"
-                                value={inputText}
-                                onChange={(e) => setInputText(e.target.value)}
-                                className="textInput"
-                                placeholder="Enter text here"
-                            />
-                            <div className="inputTextLine"></div>
-                        </div>
                     </div>
                 <div>
                     <h2 className="text-xl font-semibold mb-2">Group B</h2>
