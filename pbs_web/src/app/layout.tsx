@@ -26,7 +26,7 @@ export default function RootLayout({ children }:
     <html lang="kr">
       {/* head 태그는 비어있지만, Next.js가 자동으로 필요한 메타 태그를 삽입합니다. */}
       <head />
-      <body>
+      <body style={{ backgroundColor: 'var(--mian-background)', minHeight: '100vh' }}>
         <div className={styles.Wrapper}>
           <main className={styles.mainscreen}>
             {/* 네비게이션 바 */}
