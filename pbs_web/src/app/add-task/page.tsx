@@ -13,14 +13,20 @@ interface ActionChip {
 
 // 임시 데이터
 const mockHowListFirst: ActionChip[] = [
-  { content: "💡 내부 자극", iconX: true },
-  { content: "💡 외부 자극", iconX: false },
-  { content: "💡 목표 설정", iconX: true },
+  { content: "📌 현상 명시", iconX: false },
+  { content: "🔍 이상과 간극 식별", iconX: false },
+  { content: "📚 배경 지식 검토", iconX: false },
+  { content: "🔗 연관 요소 파악", iconX: false },
 ];
 
 const mockHowListSecond: ActionChip[] = [
-  { content: "💡 시간 관리", iconX: false },
-  { content: "💡 집중력 향상", iconX: true },
+  { content: "🧐 유사 사례 찾기", iconX: false },
+  { content: "🧩 문제 구조화", iconX: false },
+  { content: "🔍 문제 구체화", iconX: false },
+  { content: "⚖️ 사족, 잡음 제거", iconX: false },
+  { content: "🎯 우선순위 설정", iconX: false },
+  { content: "📅 실행 절차 수립", iconX: false },
+  { content: "⏳ 일정 산정", iconX: false },
 ];
 
 const AddPage: React.FC = () => {
