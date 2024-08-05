@@ -14,11 +14,7 @@ interface ActionChip {
 // 임시 데이터
 const mockHowListFirst: ActionChip[] = [
   { content: "📌 현상 명시", iconX: false },
-<<<<<<< HEAD
   { content: "🔍 이상과 간극 식별", iconX: false },
-=======
-  { content: "🔍  이상과 간극 식별", iconX: false },
->>>>>>> 5873708a8a8a8a41889e16ca43c67a4da3322003
   { content: "📚 배경 지식 검토", iconX: false },
   { content: "🔗 연관 요소 파악", iconX: false },
 ];
@@ -150,6 +146,33 @@ const AddPage: React.FC = () => {
               />
             ))}
           </div>
+        </div>
+        <div className={"buttonParent"}>
+          <button
+            className="saveButton"
+            onClick={async () => {
+              try {
+                const response = await fetch('/api/save-groups', {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify({
+                    firstGroup: actionChipsFirst,
+                    secondGroup: actionChipsSecond,
+                  }),
+                });
+                if (response.ok) {
+                  alert('그룹이 성공적으로 저장되었습니다.');
+                } else {
+                  throw new Error('저장 실패');
+                }
+              } catch (error) {
+                console.error('API 호출 중 오류 발생:', error);
+                alert('저장 중 오류가 발생했습니다.');
+              }
+            }}
+          />
         </div>
       </div>
     </div>
