@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import ActionChipChip from "@/components/actionchip.chip";
 import "../global.css";
-import "../add-task/add.page.css";
+import "./add.page.css";
 
 // ActionChip 인터페이스 정의: 각 칩의 구조를 설명
 interface ActionChip {
@@ -152,14 +152,17 @@ const AddPage: React.FC = () => {
             className="saveButton"
             onClick={async () => {
               try {
-                const response = await fetch('/api/save-groups', {
+                const filteredFirstGroup = actionChipsFirst.filter(chip => chip.iconX);
+                const filteredSecondGroup = actionChipsSecond.filter(chip => chip.iconX);
+                
+                const response = await fetch('/api/add-task-1', {
                   method: 'POST',
                   headers: {
                     'Content-Type': 'application/json',
                   },
                   body: JSON.stringify({
-                    firstGroup: actionChipsFirst,
-                    secondGroup: actionChipsSecond,
+                    firstGroup: filteredFirstGroup,
+                    secondGroup: filteredSecondGroup,
                   }),
                 });
                 if (response.ok) {
