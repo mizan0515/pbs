@@ -2,6 +2,7 @@ import React from 'react';
 import dotenv from "dotenv";
 import { connectDB } from "../../util/database"
 import styles from "./component.module.css"
+import Link from "next/link";
 
 
 
@@ -9,8 +10,9 @@ dotenv.config();
 
 // Content 인터페이스를 수정하여 step description을 별도의 타입으로 추가합니다.
 interface Content {
-  type: 'actionChip' | 'actionChipDepth' | 'stepDescription';
+  type: 'actionChip' | 'actionChipDepth' | 'stepDescription' ;
   content: string;
+  id: string;
 }
 
 /**
@@ -31,7 +33,8 @@ const extractContents = (doc: any): Content[] => {
         if (step.description) {
           contents.push({
             type: 'stepDescription',
-            content: step.description
+            content: step.description,
+            id: step.id
           });
         }
 
@@ -43,7 +46,8 @@ const extractContents = (doc: any): Content[] => {
             if (chip.content) {
               contents.push({ 
                 type: 'actionChip', 
-                content: chip.content
+                content: chip.content,
+                id: chip.id
               });
             }
             // action_chip_depth가 존재하고 배열인지 확인합니다.
@@ -54,7 +58,8 @@ const extractContents = (doc: any): Content[] => {
                 if (depth.content) {
                   contents.push({ 
                     type: 'actionChipDepth', 
-                    content: depth.content
+                    content: depth.content,
+                    id: depth.id
                   });
                 }
               });
@@ -74,16 +79,16 @@ export default async function ActionChipMain() {
   const db = client.db("pbs");
   
   // 'block' 컬렉션의 모든 문서를 가져옵니다.
-  let result = await db.collection("block").find().toArray();
+  let dbResult = await db.collection("block").find().toArray();
 
   // 모든 문서에서 추출된 내용을 저장할 배열입니다.
   let allContents: Content[] = [];
   
   // 각 문서에 대해 extractContents 함수를 실행하고 결과를 allContents에 추가합니다.
-  result.forEach(doc => {
+  dbResult.forEach(doc => {
     allContents = allContents.concat(extractContents(doc));
   });
-
+  console.log(allContents);
   // 추출된 내용을 렌더링합니다.
   return (
     <div className={styles.actionChipContainer}>
@@ -91,7 +96,7 @@ export default async function ActionChipMain() {
         {allContents.map((item, index) => {
             if (item.type === 'stepDescription') {
             return (
-                <div key={index} className={styles.stepDescription}>
+                <div key={item.id} className={styles.stepDescription}>
                 <div className={styles.title1}>
                   <div className="truncate">
                     {item.content}
@@ -102,39 +107,27 @@ export default async function ActionChipMain() {
                 </div>
                 </div>
             );
-            } else if (item.type === 'actionChip') {
+            } else if (item.type === 'actionChip' || item.type === 'actionChipDepth') {
             return (
-                <div key={index} className={styles.frameGroup}>
-                <div className={styles.chevrondownWrapper}>
-                    <div className={styles.checkbox} />
-                </div>
-                <div className={styles.actionChipbox}>
-                    <div className={styles.sample2}>
-                        <div className="truncate">
-                            {item.content}
-                        </div>
-                    </div>
-                    <img className={styles.chevrondownIcon} alt="" src="/icon-r.svg" />
-                </div>
-                </div>
-            );
-            } else if (item.type === 'actionChipDepth') {
-            return (
-                <div key={index} className={styles.frameGroup}>
-                <div className={styles.vectorWrapper}>
+                <div key={item.id} className={styles.frameGroup}>
+                {item.type === 'actionChipDepth' && (
+                  <div className={styles.vectorWrapper}>
                     <img className={styles.frameChild} alt="" src="Vector-1.svg" />
-                </div>
+                  </div>
+                )}
                 <div className={styles.chevrondownWrapper}>
                     <div className={styles.checkbox} />
                 </div>
-                <div className={styles.actionChipbox}>
-                    <div className={styles.sample2}>
-                    <div className="truncate">
-                        {item.content}
-                    </div>
-                    </div>
-                    <img className={styles.chevrondownIcon} alt="" src="/icon-r.svg" />
-                </div>
+                <Link href={`/detail/${item.id}`}  className={styles.actionChipbox}>
+          
+                      <div className={styles.sample2}>
+                          <div className="truncate">
+                              {item.content}
+                          </div>
+                      </div>
+                      <img className={styles.chevrondownIcon} alt="" src="/icon-r.svg" />
+      
+                </Link>
                 </div>
             );
             }

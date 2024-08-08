@@ -1,6 +1,8 @@
 
 import { NextApiRequest, NextApiResponse } from 'next';
 import { connectDB } from '../../../util/database';
+import { UUID } from 'mongodb';
+
 
 export default async function handler(요청: NextApiRequest, 응답: NextApiResponse) {
   if (요청.method === 'POST') {
@@ -15,10 +17,12 @@ export default async function handler(요청: NextApiRequest, 응답: NextApiRes
         title: "",
         steps: [
           {
+            id: new UUID(),
             type: "how",
             question_content: "먼저 필요한 것을 /n 파악하기 위해, {actionchip}",
             description: "문제를 해결하기 위해 무엇을 할 것인가?",
             action_chip: firstGroup.map((chip: any) => ({
+              id: new UUID(),
               content: chip.content,
               description: "",
               is_completed: false,
@@ -29,10 +33,12 @@ export default async function handler(요청: NextApiRequest, 응답: NextApiRes
             }))
           },
           {
+            id: new UUID(),
             type: "how",
             question_content: "하고, /n 해결 방안을 찾기 위해 {actionchip} 할 것이다.",
-            description: "해결 방안을 찾기 위해  분석합니다.",
+            description: "해결 방안을 찾기 위해 분석합니다.",
             action_chip: secondGroup.map((chip: any) => ({
+              id: new UUID(),
               content: chip.content,
               description: "",
               is_completed: false,
@@ -56,7 +62,4 @@ export default async function handler(요청: NextApiRequest, 응답: NextApiRes
     응답.status(405).json({ 에러: '허용되지 않는 메소드입니다.' });
   }
 }
-
-
-
 

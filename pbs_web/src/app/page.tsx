@@ -17,7 +17,7 @@ const Classify = (contents: any) => {
 const buttonMainLinks = [
   { href: "/today", text: "오늘 할 일" },
   { href: "/first-steps", text: "First Steps" },
-  { href: "/add-task", text: "작업 추가" }
+  { href: "/add-task-1", text: "작업 추가" }
 ];
 
 const Home: NextPage = () => {

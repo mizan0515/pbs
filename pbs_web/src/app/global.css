@@ -143,6 +143,7 @@ body {
   gap: 10px var(--space-5, 10px);
   align-self: stretch;
   flex-wrap: wrap;
+
 }
 
 
