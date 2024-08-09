@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { connectDB } from "../../../util/database";
 import { UUID } from "mongodb";
 
-export default async function handler(
+export default async function POST(
   요청: NextApiRequest,
   응답: NextApiResponse
 ) {
