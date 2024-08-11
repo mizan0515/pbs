@@ -1,0 +1,238 @@
+{
+    "_id": {
+      "$oid": "66a2fbb791f24c2d5234445c"
+    },
+    "title": "프로젝트 관리 계획",
+    "steps": [
+      {
+        "type": "how",
+        "question_content": "먼저 필요한 것을 /n 파악하기 위해, {actionchip}",
+        "description": "어떻게 문제를 해결할 것인가?",
+        "action_chip": [
+          {
+            "content": "프로젝트 범위 정의 및 목표 설정",
+            "description": "킥오프 미팅",
+            "is_completed": false,
+            "is_first_step": true,
+            "duration": [
+              {
+                "start": "2024-07-28T09:00:00",
+                "end": "2024-07-28T11:00:00",
+                "total": "2시간"
+              },
+              {
+                "start": "2024-07-28T14:00:00",
+                "end": "2024-07-28T16:00:00",
+                "total": "2시간"
+              }
+            ],
+            "notes": "모든 이해관계자 참석 필수",
+            "action_chip_depth": [
+              {
+                "description": "프로젝트 범위 문서 작성",
+                "is_completed": false,
+                "is_first_step": true,
+                "content": "프로젝트의 목표, 주요 산출물, 제약사항 등을 문서화",
+                "duration": [
+                  {
+                    "start": "2024-07-29T09:00:00",
+                    "end": "2024-07-29T12:00:00",
+                    "total": "3시간"
+                  },
+                  {
+                    "start": "2024-07-29T13:00:00",
+                    "end": "2024-07-29T15:00:00",
+                    "total": "2시간"
+                  }
+                ],
+                "notes": "이전 프로젝트 문서 참조 필요"
+              },
+              {
+                "description": "이해관계자 분석",
+                "is_completed": false,
+                "is_first_step": false,
+                "content": "프로젝트에 영향을 미치는 주요 이해관계자 식별 및 분석",
+                "duration": [
+                  {
+                    "start": "2024-07-30T10:00:00",
+                    "end": "2024-07-30T12:00:00",
+                    "total": "2시간"
+                  },
+                  {
+                    "start": "2024-07-30T14:00:00",
+                    "end": "2024-07-30T16:00:00",
+                    "total": "2시간"
+                  }
+                ],
+                "notes": "이해관계자 매트릭스 작성 필요"
+              }
+            ]
+          },
+          {
+            "content": "프로젝트 일정 및 자원 계획 수립",
+            "description": "계획 수립 워크샵",
+            "is_completed": false,
+            "is_first_step": false,
+            "duration": [
+              {
+                "start": "2024-07-31T09:00:00",
+                "end": "2024-07-31T12:00:00",
+                "total": "3시간"
+              },
+              {
+                "start": "2024-07-31T13:00:00",
+                "end": "2024-07-31T17:00:00",
+                "total": "4시간"
+              }
+            ],
+            "notes": "각 팀 리더 참석 필수",
+            "action_chip_depth": [
+              {
+                "description": "WBS(Work Breakdown Structure) 작성",
+                "is_completed": false,
+                "is_first_step": true,
+                "content": "프로젝트 작업을 세부 단위로 분할하여 구조화",
+                "duration": [
+                  {
+                    "start": "2024-08-01T09:00:00",
+                    "end": "2024-08-01T12:00:00",
+                    "total": "3시간"
+                  },
+                  {
+                    "start": "2024-08-01T14:00:00",
+                    "end": "2024-08-01T17:00:00",
+                    "total": "3시간"
+                  }
+                ],
+                "notes": "프로젝트 관리 소프트웨어 사용 필요"
+              },
+              {
+                "description": "리스크 관리 계획 수립",
+                "is_completed": false,
+                "is_first_step": false,
+                "content": "잠재적 리스크 식별 및 대응 전략 수립",
+                "duration": [
+                  {
+                    "start": "2024-08-02T10:00:00",
+                    "end": "2024-08-02T12:00:00",
+                    "total": "2시간"
+                  },
+                  {
+                    "start": "2024-08-02T14:00:00",
+                    "end": "2024-08-02T16:00:00",
+                    "total": "2시간"
+                  }
+                ],
+                "notes": "외부 리스크 전문가 초청 고려"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "how",
+        "question_content": "하고, /n 해결 방안을 찾기 위해 {actionchip} 할 것이다.",
+        "description": "프로젝트의 세부 요구사항을 수집하고 분석합니다.",
+        "action_chip": [
+          {
+            "content": "이해관계자 인터뷰 진행",
+            "description": "요구사항 수집 미팅",
+            "is_completed": false,
+            "is_first_step": true,
+            "duration": [
+              {
+                "start": "2024-08-05T10:00:00",
+                "end": "2024-08-05T12:00:00",
+                "total": "2시간"
+              },
+              {
+                "start": "2024-08-05T14:00:00",
+                "end": "2024-08-05T16:00:00",
+                "total": "2시간"
+              }
+            ],
+            "notes": "주요 이해관계자별 개별 인터뷰 진행",
+            "action_chip_depth": [
+              {
+                "description": "인터뷰 질문지 작성",
+                "is_completed": false,
+                "is_first_step": true,
+                "content": "각 이해관계자 그룹별 맞춤형 질문 목록 준비",
+                "duration": [
+                  {
+                    "start": "2024-08-03T09:00:00",
+                    "end": "2024-08-03T12:00:00",
+                    "total": "3시간"
+                  }
+                ],
+                "notes": "이전 프로젝트의 요구사항 문서 참조"
+              },
+              {
+                "description": "인터뷰 결과 정리",
+                "is_completed": false,
+                "is_first_step": false,
+                "content": "수집된 요구사항 분류 및 우선순위화",
+                "duration": [
+                  {
+                    "start": "2024-08-06T09:00:00",
+                    "end": "2024-08-06T17:00:00",
+                    "total": "8시간"
+                  }
+                ],
+                "notes": "요구사항 관리 도구에 입력 필요"
+              }
+            ]
+          },
+          {
+            "content": "요구사항 명세서 작성",
+            "description": "수집된 요구사항 문서화",
+            "is_completed": false,
+            "is_first_step": false,
+            "duration": [
+              {
+                "start": "2024-08-07T09:00:00",
+                "end": "2024-08-07T17:00:00",
+                "total": "8시간"
+              },
+              {
+                "start": "2024-08-08T09:00:00",
+                "end": "2024-08-08T17:00:00",
+                "total": "8시간"
+              }
+            ],
+            "notes": "기능적/비기능적 요구사항 구분하여 작성",
+            "action_chip_depth": [
+              {
+                "description": "요구사항 검토 회의",
+                "is_completed": false,
+                "is_first_step": true,
+                "content": "작성된 요구사항 명세서 검토 및 확인",
+                "duration": [
+                  {
+                    "start": "2024-08-09T14:00:00",
+                    "end": "2024-08-09T17:00:00",
+                    "total": "3시간"
+                  }
+                ],
+                "notes": "주요 이해관계자 참석 필수"
+              },
+              {
+                "description": "요구사항 승인",
+                "is_completed": false,
+                "is_first_step": false,
+                "content": "최종 요구사항 명세서에 대한 이해관계자 승인 획득",
+                "duration": [
+                  {
+                    "start": "2024-08-12T10:00:00",
+                    "end": "2024-08-12T12:00:00",
+                    "total": "2시간"
+                  }
+                ],
+                "notes": "공식 승인 문서 준비 필요"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
