@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 import Link from 'next/link';
 import styles from "./index.module.css";
 
+
 // 메타데이터 정의
 export const metadata = {
   title: 'Next.js',
