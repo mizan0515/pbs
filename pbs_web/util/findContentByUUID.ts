@@ -46,10 +46,10 @@ export function findContentByUUID(block: Block, targetUUID: string): string | nu
       // 각 단계의 액션 칩을 순회
       for (const chip of step.action_chip) {
         console.log('chip:', chip);
-        console.log('chip.id:', chip.id);
+        console.log('chip.content:', chip.content);
         
         // UUID를 문자열로 변환하고 표준 형식으로 변환
-        const chipUUID = standardizeUUID(chip.id.toString('hex'));
+        const chipUUID = standardizeUUID(chip.content);
         console.log('chipUUID:', chipUUID);
         
         // UUID가 일치하는 경우 콘텐츠 반환
@@ -61,7 +61,7 @@ export function findContentByUUID(block: Block, targetUUID: string): string | nu
         // 하위 액션 칩 검사
         if (chip.action_chip_depth && Array.isArray(chip.action_chip_depth)) {
           for (const depth of chip.action_chip_depth) {
-            const depthUUID = standardizeUUID(depth.id.toString('hex'));
+            const depthUUID = standardizeUUID(depth.content);
             if (depthUUID === standardizedTargetUUID) {
               console.log('Found matching depth chip:', depth);
               return depth.content;

@@ -5,6 +5,7 @@ import ActionChipChip from "@/components/actionchip.chip";
 import "../global.css";
 import "./add.page.css";
 
+
 // ActionChip 인터페이스 정의: 각 칩의 구조를 설명
 interface ActionChip {
   content: string;
